@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Benutzername">
+
+    </TextView>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailText"
+        android:layout_marginBottom="10dp">
+
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passwort">
+
+    </TextView>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPasswort"
+        android:layout_marginBottom="10dp"
+        android:inputType="textPassword">
+        <requestFocus />
+    </EditText>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbShowPwd"
+        android:layout_alignLeft="@+id/etPasswort"
+        android:layout_below="@+id/etPasswort"
+        android:text="@string/show_pwd">
+
+
+    </CheckBox>
+
+    <Button
+        android:id="@+id/bLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:onClick="signIn"
+        android:text="Einloggen">
+
+    </Button>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvRegisterLink"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:text="Registrieren Sie hier">
+
+    </TextView>
+
+</LinearLayout>

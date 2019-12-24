@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.projectggg1001.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_mmedikamente"
+        android:name="com.example.projectggg1001.ui.mmedikamente.MMedikamenteFragment"
+        android:label="@string/menu_mmedikamente"
+        tools:layout="@layout/fragment_mmedikamente" />
+
+    <fragment
+        android:id="@+id/nav_arzttermin"
+        android:name="com.example.projectggg1001.ui.arzttermin.ArztterminFragment"
+        android:label="@string/menu_arzttermin"
+        tools:layout="@layout/fragment_arzttermin" />
+
+    <fragment
+        android:id="@+id/nav_arztkrankheit"
+        android:name="com.example.projectggg1001.ui.arztkrankheit.ArztkrankheitFragment"
+        android:label="@string/menu_arztkrankheit"
+        tools:layout="@layout/fragment_arztkrankheit" />
+
+    <fragment
+        android:id="@+id/nav_profil"
+        android:name="com.example.projectggg1001.ui.profil.ProfilFragment"
+        android:label="@string/menu_profil"
+        tools:layout="@layout/fragment_profil" />
+
+
+</navigation>
