@@ -32,8 +32,8 @@ import java.util.HashMap;
 public class MedspeichernActivity2 extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
     private Button bt_medspeichern;
-    private EditText et_medikamenteinfo1;
-    private EditText et_medikamenteinfo2;
+    private TextView et_medikamenteinfo1;
+    private TextView et_medikamenteinfo2;
     private EditText et_medikamenteinfo3;
     private EditText et_medikamenteinfo4;
     private EditText et_medikamenteinfo5;
@@ -55,12 +55,12 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         setContentView(R.layout.activity_medspeichern2);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo1);
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo2);
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo3);
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo4);
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo5);
-        et_medikamenteinfo1 = (EditText) findViewById(R.id.et_medikamenteinfo6);
+        et_medikamenteinfo1 = (TextView) findViewById(R.id.et_medikamenteinfo1);
+        et_medikamenteinfo2 = (TextView) findViewById(R.id.et_medikamenteinfo2);
+        et_medikamenteinfo3 = (EditText) findViewById(R.id.et_medikamenteinfo3);
+        et_medikamenteinfo4 = (EditText) findViewById(R.id.et_medikamenteinfo4);
+        et_medikamenteinfo5 = (EditText) findViewById(R.id.et_medikamenteinfo5);
+        et_medikamenteinfo6 = (EditText) findViewById(R.id.et_medikamenteinfo6);
         bt_medspeichern = (Button) findViewById(R.id.button_medspeichern);
 
         Button button = (Button) findViewById(R.id.medikamenteinfo1);
@@ -81,12 +81,12 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             }
         });
 
-        medikamente_zeit = et_medikamenteinfo1.getText().toString();
-        medikamente_datum = et_medikamenteinfo1.getText().toString();
-        medikamente_periode = et_medikamenteinfo1.getText().toString();
-        medikamente_dosis = et_medikamenteinfo1.getText().toString();
-        medikamente_wieoft = et_medikamenteinfo1.getText().toString();
-        medikamente_lager = et_medikamenteinfo1.getText().toString();
+        //medikamente_zeit = et_medikamenteinfo1.getText().toString();
+        //medikamente_datum = et_medikamenteinfo2.getText().toString();
+        medikamente_periode = et_medikamenteinfo3.getText().toString();
+        medikamente_dosis = et_medikamenteinfo4.getText().toString();
+        medikamente_wieoft = et_medikamenteinfo5.getText().toString();
+        medikamente_lager = et_medikamenteinfo6.getText().toString();
 
         //önceki intentten ilaç ismi alınır.
         Intent intent = getIntent();
@@ -117,9 +117,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-        /*  BU ŞEKİLDE TEXTVİEW İ DEĞİŞTİREBİLİRSİN
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(currentDateString);*/
+        et_medikamenteinfo2.setText(currentDateString);
     }
 
     private void ilackaydet(String et_medikamenteinfo1, String et_medikamenteinfo2, String et_medikamenteinfo3, String et_medikamenteinfo4, String et_medikamenteinfo5, String et_medikamenteinfo6){

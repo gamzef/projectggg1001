@@ -22,23 +22,23 @@
 
         </TextView>
 
-
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_medikamenteinfo1"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/et_medikamenteinfo1"
+            android:text="Zeit"
+            android:textSize="25dp"
             android:ems="10"
-            android:layout_marginBottom="10dp"
-            android:inputType="time"
-            android:focusableInTouchMode="false"/>
+            android:layout_marginBottom="10dp">
+
+        </TextView>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/medikamenteinfo1"
             android:text="time picker"
-            android:layout_marginTop="10dp">
+            android:layout_marginBottom="10dp">
 
         </Button>
 
@@ -49,20 +49,21 @@
 
         </TextView>
 
-        <EditText
-            android:id="@+id/et_medikamenteinfo2"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginBottom="10dp"
-            android:inputType="date" />
+            android:textSize="25dp"
+            android:text="Datum"
+            android:id="@+id/et_medikamenteinfo2">
+
+        </TextView>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/medikamenteinfo2"
             android:text="date picker"
-            android:layout_marginTop="10dp">
+            android:layout_marginBottom="10dp">
         </Button>
 
         <TextView
