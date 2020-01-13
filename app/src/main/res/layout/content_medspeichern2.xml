@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MedspeichernActivity2"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_medspeichern2"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zeit von Einnehmen des Medikaments">
+
+        </TextView>
+
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_medikamenteinfo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginBottom="10dp"
+            android:inputType="time"
+            android:focusableInTouchMode="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/medikamenteinfo1"
+            android:text="time picker"
+            android:layout_marginTop="10dp">
+
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endedatum von dem Medikament">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/et_medikamenteinfo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginBottom="10dp"
+            android:inputType="date" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/medikamenteinfo2"
+            android:text="date picker"
+            android:layout_marginTop="10dp">
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wieviel Tabletten pro Tag (Periode)">
+
+        </TextView>
+        <EditText
+            android:id="@+id/et_medikamenteinfo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anzahl von den Tabletten (Dosis)">
+
+        </TextView>
+        <EditText
+            android:id="@+id/et_medikamenteinfo4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wie oft nehmen Sie das Medikament?">
+
+        </TextView>
+        <EditText
+            android:id="@+id/et_medikamenteinfo5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lager von dem Medikament">
+
+        </TextView>
+        <EditText
+            android:id="@+id/et_medikamenteinfo6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_medspeichern"
+            android:text="Speichern"
+            android:layout_marginTop="10dp">
+
+        </Button>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
