@@ -134,25 +134,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item){
-        /*int id = item.getItemId();
-
-        if(id == R.id.nav_home){
-
-        } else if(id == R.id.nav_mmedikamente){
-
-        } else if(id == R.id.nav_arzttermin){
-
-        } else if(id == R.id.nav_arztkrankheit){
-
-        } else if(id == R.id.nav_profil){
-
-        } else if(id == R.id.nav_logout){
-
-            finish();
-            startActivity(new Intent(this,LoginActivity.class));
-            FirebaseAuth.getInstance().signOut();
-
-        }*/
         Fragment fragment = null;
 
         switch (item.getItemId()){

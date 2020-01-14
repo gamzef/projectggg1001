@@ -25,7 +25,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), MedspeichernActivity.class);
-                in.putExtra("some","some data");
                 startActivity(in);
             }
         });

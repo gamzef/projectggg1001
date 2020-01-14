@@ -18,20 +18,59 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zeit von Einnehmen des Medikaments">
+            android:text="Zeit für das Einnehmen des Medikaments">
 
         </TextView>
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/et_medikamenteinfo1"
-            android:text="Zeit"
-            android:textSize="25dp"
-            android:ems="10"
-            android:layout_marginBottom="10dp">
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo1tv"
+                android:text="Zeit"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo2tv"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
 
-        </TextView>
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo3tv"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo4tv"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo5tv"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_medikamenteinfo6tv"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+        </LinearLayout>
 
         <Button
             android:layout_width="wrap_content"
@@ -39,37 +78,61 @@
             android:id="@+id/medikamenteinfo1"
             android:text="time picker"
             android:layout_marginBottom="10dp">
-
         </Button>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Endedatum von dem Medikament">
+            android:text="Wie oft nehmen Sie das Medikament?">
 
         </TextView>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle 4 Stunden (6 mal pro Tag)"
+            android:id="@+id/checkbox1">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle 8 Stunden (3 mal pro Tag)"
+            android:id="@+id/checkbox2">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle 12 Stunden (2 mal pro Tag)"
+            android:id="@+id/checkbox3">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle 24 Stunden (1 mal pro Tag)"
+            android:id="@+id/checkbox4">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle 48 Stunden (jeden zweiten Tag)"
+            android:id="@+id/checkbox5">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Einmal pro Woche"
+            android:id="@+id/checkbox6">
+        </CheckBox>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Einmal pro Monat"
+            android:id="@+id/checkbox7">
+        </CheckBox>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:text="Datum"
-            android:id="@+id/et_medikamenteinfo2">
-
-        </TextView>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/medikamenteinfo2"
-            android:text="date picker"
-            android:layout_marginBottom="10dp">
-        </Button>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wieviel Tabletten pro Tag (Periode)">
+            android:text="Anzahl von den Tabletten (Dosis)">
 
         </TextView>
         <EditText
@@ -77,12 +140,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anzahl von den Tabletten (Dosis)">
+            android:text="Lager von dem Medikament">
 
         </TextView>
         <EditText
@@ -95,28 +158,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wie oft nehmen Sie das Medikament?">
+            android:text="Enddatum von dem Medikament">
 
         </TextView>
-        <EditText
-            android:id="@+id/et_medikamenteinfo5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lager von dem Medikament">
+            android:textSize="25dp"
+            android:text="Enddatum"
+            android:id="@+id/et_medikamenteinfo2">
 
         </TextView>
-        <EditText
-            android:id="@+id/et_medikamenteinfo6"
-            android:layout_width="match_parent"
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:id="@+id/medikamenteinfo2"
+            android:text="date picker"
+            android:layout_marginBottom="10dp">
+        </Button>
 
         <Button
             android:layout_width="wrap_content"
