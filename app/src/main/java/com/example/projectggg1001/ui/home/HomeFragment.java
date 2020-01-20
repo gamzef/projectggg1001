@@ -20,6 +20,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         Button button_medspeichern = view.findViewById(R.id.button_mspeichern);
         button_medspeichern.setOnClickListener(new View.OnClickListener() {
             @Override

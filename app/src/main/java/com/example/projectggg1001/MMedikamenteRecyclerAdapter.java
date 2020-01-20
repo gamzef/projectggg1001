@@ -16,17 +16,17 @@ public class MMedikamenteRecyclerAdapter extends RecyclerView.Adapter<MMedikamen
     private ArrayList<String> mnameList;
     private ArrayList<String> mzeitList;    //ilaç saati
     private ArrayList<Object> mwieoftList; //kaç saatte bir
+    private ArrayList<String> menddatumList;
     private ArrayList<Object> mdosisList;
     private ArrayList<Object> mlagerList;
-    private ArrayList<String> menddatumList;
 
-    public MMedikamenteRecyclerAdapter(ArrayList<String> mnameList, ArrayList<String> mzeitList, ArrayList<Object> mwieoftList, ArrayList<Object> mdosisList, ArrayList<Object> mlagerList, ArrayList<String> menddatumList) {
+    public MMedikamenteRecyclerAdapter(ArrayList<String> mnameList, ArrayList<String> mzeitList, ArrayList<Object> mwieoftList, ArrayList<String> menddatumList, ArrayList<Object> mdosisList, ArrayList<Object> mlagerList) {
         this.mnameList = mnameList;
         this.mzeitList = mzeitList;
         this.mwieoftList = mwieoftList;
+        this.menddatumList = menddatumList;
         this.mdosisList = mdosisList;
         this.mlagerList = mlagerList;
-        this.menddatumList = menddatumList;
     }
 
     @NonNull
@@ -44,9 +44,9 @@ public class MMedikamenteRecyclerAdapter extends RecyclerView.Adapter<MMedikamen
         holder.ilacismiText.setText(mnameList.get(position));
         holder.ilacsaatiText.setText(mzeitList.get(position));
         holder.ilaczamaniText.setText(""+mwieoftList.get(position));
+        holder.ilactarihText.setText(menddatumList.get(position));
         holder.ilacdozuText.setText(""+mdosisList.get(position));
         holder.ilackapsulsayiText.setText(""+mlagerList.get(position));
-        holder.ilactarihText.setText(menddatumList.get(position));
     }
 
     @Override
@@ -69,9 +69,9 @@ public class MMedikamenteRecyclerAdapter extends RecyclerView.Adapter<MMedikamen
             ilacismiText = itemView.findViewById(R.id.recyclerView_row_ilaçismi_text);
             ilacsaatiText = itemView.findViewById(R.id.recyclerView_row_ilaçsaati_text);
             ilaczamaniText = itemView.findViewById(R.id.recyclerView_row_ilaçzamanı_text);
+            ilactarihText = itemView.findViewById(R.id.recyclerView_row_ilaçtarih_text);
             ilacdozuText = itemView.findViewById(R.id.recyclerView_row_ilaçdozu_text);
             ilackapsulsayiText = itemView.findViewById(R.id.recyclerView_row_ilaçkapsülsayısı_text);
-            ilactarihText = itemView.findViewById(R.id.recyclerView_row_ilaçtarih_text);
         }
     }
 

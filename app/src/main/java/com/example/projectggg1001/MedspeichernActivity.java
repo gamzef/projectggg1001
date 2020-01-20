@@ -38,7 +38,6 @@ public class MedspeichernActivity extends AppCompatActivity {
 
         et_medikamente = (EditText) findViewById(R.id.et_medikamente);
         bt_medikamente = (Button) findViewById(R.id.button_medikamente);
-        medikamente_name="";
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,7 +50,6 @@ public class MedspeichernActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         }
-
 
         bt_medikamente.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -12,15 +13,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name von dem Medikament: ">
+            android:text="Name von dem Termin: ">
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç ismi text"
+            android:text="randevu ismi text"
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
-            android:id="@+id/recyclerView_row_ilaçismi_text">
+            android:id="@+id/recyclerView_row_randevuismi_text">
         </TextView>
     </LinearLayout>
 
@@ -31,17 +32,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zeit von dem Medikament:">
+            android:text="Zeit von dem Termin:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç saati text"
+            android:text="randevu saati text"
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
-            android:id="@+id/recyclerView_row_ilaçsaati_text">
+            android:id="@+id/recyclerView_row_randevusaati_text">
         </TextView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -51,41 +53,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wieoft nehmen Sie das Medikament:">
+            android:text="Termindatum:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç zamanı text(kaç saatte bir)"
+            android:text="randevu tarihi text"
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
-            android:id="@+id/recyclerView_row_ilaçzamanı_text">
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" mal pro Tag">
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dosis:">
-
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ilaç dozu text"
-            android:paddingTop="15dp"
-            android:paddingLeft="7dp"
-            android:id="@+id/recyclerView_row_ilaçdozu_text">
+            android:id="@+id/recyclerView_row_randevutarih_text">
         </TextView>
     </LinearLayout>
     <LinearLayout
@@ -95,36 +72,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lager:">
+            android:text="Address von dem Termin:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç kapsül sayısı text"
-            android:paddingTop="15dp"
-            android:paddingLeft="7dp"
-            android:id="@+id/recyclerView_row_ilaçkapsülsayısı_text">
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enddatum von dem Medikament:">
-
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ilaç tarih text"
+            android:text="randevu adresi text"
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:paddingBottom="25dp"
-            android:id="@+id/recyclerView_row_ilaçtarih_text">
+            android:id="@+id/recyclerView_row_randevuadresi_text">
         </TextView>
     </LinearLayout>
 

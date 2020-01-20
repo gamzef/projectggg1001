@@ -63,9 +63,9 @@ public class MMedikamenteFragment extends Fragment {
         mnameFromFB = new ArrayList<>();
         mzeitFromFB = new ArrayList<>();
         mwieoftFromFB = new ArrayList<>();
+        menddatumFromFB = new ArrayList<>();
         mdosisFromFB = new ArrayList<>();
         mlagerFromFB = new ArrayList<>();
-        menddatumFromFB = new ArrayList<>();
 
         getDataFromFirestore();
 
@@ -73,7 +73,7 @@ public class MMedikamenteFragment extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(c);
         recyclerView.setLayoutManager(layoutManager);      //recycler_row'la tek tek ekranda göstereceğimizi belirtiyoruz
-        mMedikamenteRecyclerAdapter = new MMedikamenteRecyclerAdapter(mnameFromFB,mzeitFromFB,mwieoftFromFB,mdosisFromFB,mlagerFromFB,menddatumFromFB);
+        mMedikamenteRecyclerAdapter = new MMedikamenteRecyclerAdapter(mnameFromFB,mzeitFromFB,mwieoftFromFB,menddatumFromFB,mdosisFromFB,mlagerFromFB);
         recyclerView.setAdapter(mMedikamenteRecyclerAdapter);
 
         return root;
@@ -90,18 +90,18 @@ public class MMedikamenteFragment extends Fragment {
 
                         //Casting
                         String medikamentename = (String) mmedikamente.get("medikamentename");
-                        String medikamentezeit = (String) mmedikamente.get("medikamentezeit"+":"+"medikamenteminute");
+                        String medikamentezeit = (String) mmedikamente.get("medikamentezeit");
                         Object medikamentewieoft = (Object) mmedikamente.get("medikamentewieoft");
+                        String medikamenteenddatum = (String) mmedikamente.get("medikamenteenddatum");
                         Object medikamentedosis = (Object) mmedikamente.get("medikamentedosis");
                         Object medikamentelager = (Object) mmedikamente.get("medikamentelager");
-                        String medikamenteenddatum = (String) mmedikamente.get("medikamenteenddatum");
 
                         mnameFromFB.add(medikamentename);
                         mzeitFromFB.add(medikamentezeit);
                         mwieoftFromFB.add(medikamentewieoft);
+                        menddatumFromFB.add(medikamenteenddatum);
                         mdosisFromFB.add(medikamentedosis);
                         mlagerFromFB.add(medikamentelager);
-                        menddatumFromFB.add(medikamenteenddatum);
 
                         mMedikamenteRecyclerAdapter.notifyDataSetChanged();
 

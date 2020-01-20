@@ -60,6 +60,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
     private int hourofday1;
     private int minute1;
     int minutes;
+    private String zeit;
     private CheckBox checkBox1;
     private CheckBox checkBox2;
     private CheckBox checkBox3;
@@ -235,9 +236,6 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             }
         });
 
-        //medikamente_dosis = et_medikamenteinfo3.getText().toString();
-        //medikamente_lager = et_medikamenteinfo4.getText().toString();
-
         bt_medspeichern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,8 +243,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                 medikamente_lager = et_medikamenteinfo4.getText().toString();
                 HashMap<String, Object> addMed1 = new HashMap<>();
                 addMed1.put("medikamentename",medname);
-                addMed1.put("medikamentezeit",hourofday1);
-                addMed1.put("medikamenteminute",minute1);
+                addMed1.put("medikamentezeit",hourofday1+":"+minute1);
                 addMed1.put("medikamentewieoft",id1);
                 addMed1.put("medikamenteenddatum",medikamente_zeit);
                 addMed1.put("medikamentedosis",medikamente_dosis);
@@ -294,7 +291,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         hourofday1 = hourOfDay;
         minute1 = minute;
         minutes=minute;
-        et_medikamenteinfo1.setText(hourOfDay + ":" + minute);
+        et_medikamenteinfo1.setText(hourOfDay+":"+minute);
     }
 
     @Override
