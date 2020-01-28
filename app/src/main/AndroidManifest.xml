@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MedspeichernActivity2"></activity>
-        <activity android:name=".ArztterminActivity"></activity>
-        <activity android:name=".ArztterminActivity2"></activity>
+        <activity android:name=".PasswortActivity"></activity>
+        <activity android:name=".MedspeichernActivity2" />
+        <activity android:name=".ArztterminActivity" />
+        <activity android:name=".ArztterminActivity2" />
         <activity
             android:name=".MedspeichernActivity"
             android:label="@string/title_activity_medspeichern"
