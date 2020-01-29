@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -47,18 +46,10 @@ public class MMedikamenteFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MMedikamenteViewModel =
-                ViewModelProviders.of(this).get(MMedikamenteViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mmedikamente, container, false);
+
         FragmentActivity c = getActivity();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        final TextView textView = root.findViewById(R.id.text_mmedikamente);
-        MMedikamenteViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
         mnameFromFB = new ArrayList<>();
         mzeitFromFB = new ArrayList<>();

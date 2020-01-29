@@ -1,8 +1,12 @@
 package com.example.projectggg1001;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.view.View;
@@ -16,7 +20,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,7 +27,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -40,6 +42,9 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
     private int hourofDay;
     private int hourofday1;
     private int minute1;
+    private int yil;
+    private int ay;
+    private int gun;
     int minutes;
     private String currentDateString;
     private FirebaseFirestore firebaseFirestore;
@@ -47,19 +52,21 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
     private String addresstermin;
     private String zeit;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arzttermin2);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-        name_termin = findViewById(R.id.terminname);
+        name_termin = (EditText) findViewById(R.id.terminname);
         bt_datepicker = findViewById(R.id.bt_termin_date);
         bt_timepicker = findViewById(R.id.bt_termin_zeit);
         tv_zeittermin = findViewById(R.id.tv_zeittermin);
         tv_datumtermin = findViewById(R.id.tv_datetermin);
         address_termin = findViewById(R.id.addresstermin);
         bt_speicherntermin = findViewById(R.id.speichern_termin);
+
 
         bt_timepicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,24 +89,29 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
             public void onClick(View v) {
                 nametermin = name_termin.getText().toString();
                 addresstermin = address_termin.getText().toString();
-                HashMap<String, Object> addTermin = new HashMap<>();
-                addTermin.put("terminname",nametermin);
-                addTermin.put("terminzeit",zeit);
-                addTermin.put("termindatum",currentDateString);
-                addTermin.put("terminaddress",addresstermin);
-                //addTermin.put("alarm",);
-                firebaseFirestore.collection("termine").add(addTermin).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Intent intent23 = new Intent(ArztterminActivity2.this,MainActivity.class);
-                        startActivity(intent23);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ArztterminActivity2.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
-                    }
-                });
+                if(nametermin == ""){
+                    Toast.makeText(ArztterminActivity2.this,"Randevunuzun ismini giriniz.",Toast.LENGTH_LONG).show();
+                }else{
+                    HashMap<String, String> addTermin = new HashMap<>();
+                    addTermin.put("terminname", nametermin);
+                    addTermin.put("terminzeit",zeit);
+                    addTermin.put("termindatum",currentDateString);
+                    addTermin.put("terminaddress",addresstermin);
+                    firebaseFirestore.collection("termine").add(addTermin).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Intent intent23 = new Intent(ArztterminActivity2.this,MainActivity.class);
+                            intent23.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent23);
+                            startAlert();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ArztterminActivity2.this,e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
     }
@@ -118,9 +130,14 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
-
+        currentDateString = DateFormat.getDateInstance(DateFormat.DEFAULT).format(c.getTime());
         tv_datumtermin.setText(currentDateString);
+
+    }
+
+    public void startAlert(){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(this,MyReceiver.class);
     }
 
 

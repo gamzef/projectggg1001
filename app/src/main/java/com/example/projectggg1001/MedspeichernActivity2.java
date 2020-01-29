@@ -40,11 +40,17 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
     private TextView et_medikamenteinfo4tv;
     private TextView et_medikamenteinfo5tv;
     private TextView et_medikamenteinfo6tv;
+    private TextView et_medikamenteinfo7tv;
+    private TextView et_medikamenteinfo8tv;
+    private TextView et_medikamenteinfo9tv;
     private TextView et_medikamenteinfo2;
     private EditText et_medikamenteinfo3;
     private EditText et_medikamenteinfo4;
     private EditText et_medikamenteinfo5;
     private EditText et_medikamenteinfo6;
+    private EditText et_medikamenteinfo7;
+    private EditText et_medikamenteinfo8;
+    private EditText et_medikamenteinfo9;
     private String medikamente_zeit;
     private String medikamente_datum;
     private String medikamente_periode;
@@ -83,6 +89,9 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         et_medikamenteinfo4tv = (TextView) findViewById(R.id.et_medikamenteinfo4tv);  //ZEİT
         et_medikamenteinfo5tv = (TextView) findViewById(R.id.et_medikamenteinfo5tv);  //ZEİT
         et_medikamenteinfo6tv = (TextView) findViewById(R.id.et_medikamenteinfo6tv);  //ZEİT
+        et_medikamenteinfo7tv = (TextView) findViewById(R.id.et_medikamenteinfo7tv);
+        et_medikamenteinfo8tv = (TextView) findViewById(R.id.et_medikamenteinfo8tv);
+        et_medikamenteinfo9tv = (TextView) findViewById(R.id.et_medikamenteinfo9tv);
         et_medikamenteinfo2 = (TextView) findViewById(R.id.et_medikamenteinfo2);    //DATUM
         et_medikamenteinfo3 = (EditText) findViewById(R.id.et_medikamenteinfo3);    //DOSİS
         et_medikamenteinfo4 = (EditText) findViewById(R.id.et_medikamenteinfo4);    //LAGER
@@ -107,7 +116,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                 if(checkBox1.isChecked()){
                     id1=4;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                        for(int i = 0; i < id1;i++){
+                        for(int i = 0; hourofDay < 24;i++){
                             if(hourofDay+4<24) {
                                 basilacaksaatler = insertString(basilacaksaatler, ", "+(hourofDay + 4) + ":" + minutes,0);
                                 hourofDay=hourofDay+4;
@@ -126,7 +135,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                 if(checkBox2.isChecked()){
                     id1=8;  //kaç saatte bir saatlerin yazılacağı
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    for(int i = 0; i < id1;i++){
+                    for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+8<24) {
                             basilacaksaatler = insertString(basilacaksaatler, ", "+(hourofDay + 8) + ":" + minutes,0);
                             hourofDay=hourofDay+8;
@@ -140,14 +149,13 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             }
         });
 
-        //Bİ PROBLEM VAR BAK BAKALIM!!!!!!!!!!!!!!!!!!!!!!!éééééééééééééééééééééééééééééééééééé!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ééééééééééé!!!!!!!!!!!!!!!!!!!!
         checkBox3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox1.isChecked()){
+                if(checkBox3.isChecked()){
                     id1=12;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    for(int i = 0; i < id1;i++){
+                    for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+12<24) {
                             basilacaksaatler = insertString(basilacaksaatler, ", "+(hourofDay + 12) + ":" + minutes,0);
                             hourofDay=hourofDay+12;
@@ -163,10 +171,10 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         checkBox4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox1.isChecked()){
+                if(checkBox4.isChecked()){
                     id1=24;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    for(int i = 0; i < id1;i++){
+                    for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+24<24) {
                             basilacaksaatler = insertString(basilacaksaatler, ", "+(hourofDay + 24) + ":" + minutes,0);
                             hourofDay=hourofDay+24;
@@ -182,10 +190,10 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         checkBox5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox1.isChecked()){
+                if(checkBox5.isChecked()){
                     id1=48;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    for(int i = 0; i < id1;i++){
+                    for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+48<24) {
                             basilacaksaatler = insertString(basilacaksaatler, ", "+(hourofDay + 48) + ":" + minutes,0);
                             hourofDay=hourofDay+48;
@@ -201,20 +209,20 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         checkBox6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox1.isChecked()){
+                if(checkBox6.isChecked()){
                     id1=7;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    et_medikamenteinfo1.setText(basilacaksaatler);
+                    et_medikamenteinfo6tv.setText(basilacaksaatler);
                 }
             }
         });
         checkBox7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBox1.isChecked()){
+                if(checkBox7.isChecked()){
                     id1=30;
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    et_medikamenteinfo1.setText(basilacaksaatler);
+                    et_medikamenteinfo7tv.setText(basilacaksaatler);
                 }
             }
         });

@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aktuelles Passwort">
+            android:text="Eski Şifre">
 
         </TextView>
         <EditText
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Confirm Passwort">
+            android:text="Eski Şifreyi Onayla">
         </Button>
     </LinearLayout>
     <LinearLayout
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Neues Passwort">
+            android:text="Yeni Şifre">
 
         </TextView>
         <EditText
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Passwort ändern">
+            android:text="Şifreyi değiştir">
 
         </Button>
     </LinearLayout>

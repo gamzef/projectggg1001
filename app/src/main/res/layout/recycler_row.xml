@@ -12,12 +12,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name von dem Medikament: ">
+            android:text="İlacın ismi: ">
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç ismi text"
+            android:text=""
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:id="@+id/recyclerView_row_ilaçismi_text">
@@ -31,13 +31,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zeit von dem Medikament:">
+            android:text="İlacın zamanı:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç saati text"
+            android:text=""
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:id="@+id/recyclerView_row_ilaçsaati_text">
@@ -51,21 +51,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wieoft nehmen Sie das Medikament:">
+            android:text="İlacı hangi sıklıkla alıyorsunuz:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç zamanı text(kaç saatte bir)"
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
+            android:text="Günde ">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:paddingTop="15dp"
             android:id="@+id/recyclerView_row_ilaçzamanı_text">
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" mal pro Tag">
+            android:text=" kez">
         </TextView>
     </LinearLayout>
 
@@ -76,13 +83,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dosis:">
+            android:text="İlacın dozu:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç dozu text"
+            android:text=""
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:id="@+id/recyclerView_row_ilaçdozu_text">
@@ -95,13 +102,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lager:">
+            android:text="Kutudaki ilaç adedi:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç kapsül sayısı text"
+            android:text=""
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:id="@+id/recyclerView_row_ilaçkapsülsayısı_text">
@@ -114,13 +121,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enddatum von dem Medikament:">
+            android:text="İlacın son kullanma tarihi:">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ilaç tarih text"
+            android:text=""
             android:paddingTop="15dp"
             android:paddingLeft="7dp"
             android:paddingBottom="25dp"

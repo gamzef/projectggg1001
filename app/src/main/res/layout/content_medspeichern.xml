@@ -14,16 +14,16 @@
         android:id="@+id/et_medikamente"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="90dp"
         android:ems="10"
-        android:hint="Medikamente"
+        android:hint="İlacın İsmi"
         android:inputType="textPersonName" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_medikamente"
-        android:text="Search"
+        android:text="İlaç ismini kaydet"
         android:layout_marginTop="80dp">
 
     </Button>

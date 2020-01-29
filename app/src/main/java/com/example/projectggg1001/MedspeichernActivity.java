@@ -42,19 +42,13 @@ public class MedspeichernActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
-            if(bundle.getString("some") != null){
-                Toast.makeText(getApplicationContext(),
-                        "data:" + bundle.getString("some"),
-                        Toast.LENGTH_SHORT).show();
-            }
-        }
-
         bt_medikamente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 medikamente_name = et_medikamente.getText().toString();
+                if(medikamente_name==""){
+                    Toast.makeText(MedspeichernActivity.this,"Lütfen hatırlatıcı eklemek istediğiniz ilacın ismini giriniz.",Toast.LENGTH_LONG).show();
+                }
                 Intent intent2 = new Intent(MedspeichernActivity.this,MedspeichernActivity2.class);
                 intent2.putExtra("medname",medikamente_name);
                 startActivity(intent2);

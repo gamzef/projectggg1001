@@ -6,20 +6,19 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Medikamente Speichern</string>
-    <string name="menu_mmedikamente">Meine Medikamente</string>
-    <string name="menu_arzttermin">Termin beim Arzt hinzufügen</string>
-    <string name="menu_arztkrankheit">Welcher Arzt welche Krankheit</string>
+    <string name="menu_home">İlaç hatırlatıcısı ekleme</string>
+    <string name="menu_mmedikamente">İlaçlarım</string>
+    <string name="menu_arzttermin">Randevu hatırlatıcısı ekleme</string>
+    <string name="menu_arztkrankheit">Hangi doktora gitmeliyim?</string>
     <string name="menu_profil">Profil</string>
-    <string name="menu_send">Send</string>
-    <string name="menu_logout">Logout</string>
+    <string name="menu_logout">Çıkış</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="show_pwd">Show password</string>
-    <string name="name_register">Name</string>
-    <string name="alter_register">Alter</string>
+    <string name="show_pwd">Şifreyi Göster</string>
+    <string name="name_register">İsim</string>
+    <string name="alter_register">Yaş</string>
     <string name="emailtext_register">E-Mail</string>
-    <string name="passwort_register">Passwort</string>
+    <string name="passwort_register">Şifre</string>
     <string name="title_activity_medspeichern">MedspeichernActivity</string>
 </resources>

@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Fügen Sie bitte den Name von dem Teil des Körpers,die weh tut."/>
+            android:text="Rahatsızlık hissettiğiniz bölgenizi belirtiniz. Doğru yazmaya özen gösteriniz."/>
 
         <EditText
             android:layout_width="350dp"
@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Fügen Sie bitte den Name von Beschwerden (Schmerz,Blutterguss usw.)"/>
+            android:text="Rahatsızlığınızı tanımlayınız. (Ağrı, kanama vb.)"/>
 
         <EditText
             android:layout_width="350dp"
@@ -51,7 +51,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ergebnis"
+            android:text="Sonucu Gör"
             android:layout_gravity="center"
             android:id="@+id/ergebnis"
             android:textSize="25dp"

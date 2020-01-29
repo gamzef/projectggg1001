@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Benutzername">
+        android:text="E-Mail">
 
     </TextView>
     <EditText
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Passwort">
+        android:text="Şifre">
 
     </TextView>
     <EditText
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:onClick="signIn"
-        android:text="Einloggen">
+        android:text="Giriş Yap">
 
     </Button>
     <TextView
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
-        android:text="Registrieren Sie hier">
+        android:text="Kaydolun">
 
     </TextView>
 
