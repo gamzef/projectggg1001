@@ -58,6 +58,8 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arzttermin2);
 
+        getSupportActionBar().setTitle("Randevu Ekleme");
+
         firebaseFirestore = FirebaseFirestore.getInstance();
         name_termin = (EditText) findViewById(R.id.terminname);
         bt_datepicker = findViewById(R.id.bt_termin_date);
@@ -92,7 +94,7 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
                 if(nametermin == ""){
                     Toast.makeText(ArztterminActivity2.this,"Randevunuzun ismini giriniz.",Toast.LENGTH_LONG).show();
                 }else{
-
+                    Toast.makeText(ArztterminActivity2.this,"Alarm kuruldu.",Toast.LENGTH_SHORT).show();
                     HashMap<String, String> addTermin = new HashMap<>();
                     addTermin.put("terminname", nametermin);
                     addTermin.put("terminzeit",zeit);
@@ -133,6 +135,20 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
         currentDateString = DateFormat.getDateInstance(DateFormat.DEFAULT).format(c.getTime());
         tv_datumtermin.setText(currentDateString);
 
+        c.set(Calendar.DAY_OF_MONTH,dayOfMonth-1);
+        c.set(Calendar.HOUR,hourofDay);
+        c.set(Calendar.MINUTE,minutes);
+        c.set(Calendar.SECOND,0);
+
+        setAlarm(c.getTimeInMillis());
+    }
+
+    public void setAlarm(long timeInMillis){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this,AlarmReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
     }
 
 

@@ -1,6 +1,10 @@
 package com.example.projectggg1001;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.projectggg1001.ui.home.HomeFragment;
@@ -11,6 +15,7 @@ import com.firebase.client.FirebaseError;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +41,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Map;
@@ -43,14 +49,15 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private Firebase mRef;
     private TextView mValueview;
+    private TextView tView;
+    String nameofuser;
     DrawerLayout drawer;
 
     protected void onStart() {
         super.onStart();
-        mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser() == null){
             finish();
@@ -68,7 +75,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        mValueview = (TextView) findViewById(R.id.headerName);
+        View navView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+
+        mValueview = (TextView) navView.findViewById(R.id.headerName);
+        tView = (TextView) navView.findViewById(R.id.textView);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -85,8 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-
-
         Firebase.setAndroidContext(this);   //kullanıcının bilgilerini firebase'den almak için
         mRef = new Firebase("https://projectggg.firebaseio.com/Users");
         mRef.addChildEventListener(new ChildEventListener() {
@@ -95,9 +104,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Map<String, String> map = dataSnapshot.getValue(Map.class);
                 String name = map.get("name");
                 String age = map.get("age");
-                //String value = dataSnapshot.getValue(String.class);
 
+                if(mAuth.getCurrentUser()==null){
 
+                }else{
+                    //Kullanıcı ismini alma
+                    Intent intent = getIntent();
+                    nameofuser = intent.getStringExtra("name");
+                    tView.setText(mAuth.getCurrentUser().getEmail());
+                    mValueview.setText(nameofuser);
+                }
                 Log.v("E_VALUE","Data : "+name);
             }
 
@@ -121,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
     }
 
 
@@ -203,5 +220,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, LoginActivity.class));
         }
         return true;
+    }
+
+    public String getName(){
+        return nameofuser;
     }
 }

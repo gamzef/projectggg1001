@@ -90,6 +90,8 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medspeichern2);
 
+        getSupportActionBar().setTitle("İlaç Ekleme");
+
         firebaseFirestore = FirebaseFirestore.getInstance();
         et_medikamenteinfo1 = (TextView) findViewById(R.id.et_medikamenteinfo1tv);    //ZEİT
         et_medikamenteinfo2 = (TextView) findViewById(R.id.et_medikamenteinfo2);    //DATUM
@@ -268,7 +270,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                     );
                     setAlarm(calendar.getTimeInMillis(),7);
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    et_medikamenteinfo6tv.setText(basilacaksaatler);
+                    et_medikamenteinfo1.setText(basilacaksaatler);
                 }
             }
         });
@@ -287,7 +289,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                     );
                     setAlarm(calendar.getTimeInMillis(),30);
                     String basilacaksaatler=(hourofDay+":"+minutes);
-                    et_medikamenteinfo7tv.setText(basilacaksaatler);
+                    et_medikamenteinfo1.setText(basilacaksaatler);
                 }
             }
         });
@@ -328,6 +330,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                         Intent intent = new Intent(MedspeichernActivity2.this,MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -375,10 +378,10 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
 
         createNotificationChannel();
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        final AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, MyReceiver.class);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        final PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         if(id1==12){
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
         }else if(id1==24){
@@ -393,6 +396,12 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY / id1, pendingIntent);
         }
 
+        /*bt_alarmiptal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alarmManager.cancel(pendingIntent);
+            }
+        });*/
     }
 
     //notification oluşturmak için
@@ -406,7 +415,6 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
 
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
-
         }
     }
 

@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.projectggg1001.LoginActivity;
+import com.example.projectggg1001.MainActivity;
 import com.example.projectggg1001.PasswortActivity;
 import com.example.projectggg1001.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,7 +37,7 @@ public class ProfilFragment extends Fragment {
 
     private ProfilViewModel profilViewModel;
     private EditText nameText;
-    private EditText emailText;
+    private TextView emailText;
     private EditText geschlechtText;
     private EditText geburtsdatumText;
     private EditText gewichtText;
@@ -58,6 +59,10 @@ public class ProfilFragment extends Fragment {
                 ViewModelProviders.of(this).get(ProfilViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profil, container, false);
 
+
+        MainActivity activity = (MainActivity) getActivity();
+        String nameofuser = activity.getName();
+
         //Tanımlama
         nameText = (EditText) root.findViewById(R.id.nameText_pa);
         emailText = root.findViewById(R.id.emailText_pa);
@@ -72,7 +77,7 @@ public class ProfilFragment extends Fragment {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         //Kullanıcının daha önce kaydettiği bilgileri Profil sayfasında gösterme
-        nameText.setText(firebaseUser.getDisplayName());
+        nameText.setText(nameofuser);
         emailText.setText(firebaseUser.getEmail());
         geschlechtText.setText(geschlecht);
         geburtsdatumText.setText(geburtsdatum);

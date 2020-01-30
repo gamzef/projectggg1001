@@ -1,7 +1,6 @@
 package com.example.projectggg1001;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,8 +12,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.TaskStackBuilder;
 
-
-public class MyReceiver extends BroadcastReceiver {
+public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -24,9 +22,9 @@ public class MyReceiver extends BroadcastReceiver {
 
 
         //Notification oluşturmak için
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"ilachatırlatma")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"randevuhatırlatma")
                 .setSmallIcon(R.drawable.bell)
-                .setContentTitle("İlacını Kullanmalısın")
+                .setContentTitle("Yarın tam bu saatte randevun var.")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis());
         Intent i = new Intent();

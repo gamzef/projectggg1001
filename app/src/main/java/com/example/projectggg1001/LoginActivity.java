@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText etEmailText, etPasswort;
     TextView tvRegisterLink;
     CheckBox mCbShowPwd;
+    String nameofuser;
     private FirebaseAuth mAuth;
 
 
@@ -40,6 +41,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mCbShowPwd= (CheckBox) findViewById(R.id.cbShowPwd);
         bLogin = (Button) findViewById(R.id.bLogin);
         tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
+
+        //Kullanıcı ismini alma
+        Intent intent = getIntent();
+        nameofuser = intent.getStringExtra("name");
 
         //ŞİFRE HIDE/SHOW ÖZELLİĞİ
         mCbShowPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -81,6 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             } else {
                                 finish();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("name",nameofuser);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                             }

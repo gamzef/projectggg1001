@@ -1,5 +1,8 @@
 package com.example.projectggg1001;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -41,6 +44,7 @@ public class MedspeichernActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("İlaç Ekleme");
 
         bt_medikamente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +59,7 @@ public class MedspeichernActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
 

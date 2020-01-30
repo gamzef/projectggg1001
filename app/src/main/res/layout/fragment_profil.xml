@@ -22,14 +22,14 @@
             android:layout_marginBottom="10dp">
 
         </EditText>
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/emailText_pa"
             android:hint="E-Mail"
             app:met_floatingLabel="normal"
             android:layout_marginBottom="10dp">
-        </EditText>
+        </TextView>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

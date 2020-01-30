@@ -33,6 +33,8 @@ public class ArztterminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arzttermin);
 
+        getSupportActionBar().setTitle("Randevularım");
+
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         tnameFromFB = new ArrayList<>();
