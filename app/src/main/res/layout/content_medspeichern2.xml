@@ -34,71 +34,9 @@
                 android:textSize="25dp"
                 android:layout_marginBottom="10dp">
             </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo2tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo3tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo4tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo5tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo6tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo7tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo8tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_medikamenteinfo9tv"
-                android:textSize="25dp"
-                android:layout_marginBottom="10dp">
-            </TextView>
-        </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

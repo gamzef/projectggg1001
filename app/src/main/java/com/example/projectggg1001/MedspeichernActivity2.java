@@ -2,6 +2,7 @@ package com.example.projectggg1001;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.AlarmManager;
@@ -72,7 +73,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
     private int hourofday1;
     private int minute1;
     int minutes;
-    private String zeit;
+    private String alarmid;
     private CheckBox checkBox1;
     private CheckBox checkBox2;
     private CheckBox checkBox3;
@@ -91,14 +92,6 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         et_medikamenteinfo1 = (TextView) findViewById(R.id.et_medikamenteinfo1tv);    //ZEİT
-        et_medikamenteinfo2tv = (TextView) findViewById(R.id.et_medikamenteinfo2tv);  //ZEİT
-        et_medikamenteinfo3tv = (TextView) findViewById(R.id.et_medikamenteinfo3tv);  //ZEİT
-        et_medikamenteinfo4tv = (TextView) findViewById(R.id.et_medikamenteinfo4tv);  //ZEİT
-        et_medikamenteinfo5tv = (TextView) findViewById(R.id.et_medikamenteinfo5tv);  //ZEİT
-        et_medikamenteinfo6tv = (TextView) findViewById(R.id.et_medikamenteinfo6tv);  //ZEİT
-        et_medikamenteinfo7tv = (TextView) findViewById(R.id.et_medikamenteinfo7tv);
-        et_medikamenteinfo8tv = (TextView) findViewById(R.id.et_medikamenteinfo8tv);
-        et_medikamenteinfo9tv = (TextView) findViewById(R.id.et_medikamenteinfo9tv);
         et_medikamenteinfo2 = (TextView) findViewById(R.id.et_medikamenteinfo2);    //DATUM
         et_medikamenteinfo3 = (EditText) findViewById(R.id.et_medikamenteinfo3);    //DOSİS
         et_medikamenteinfo4 = (EditText) findViewById(R.id.et_medikamenteinfo4);    //LAGER
@@ -111,6 +104,9 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         checkBox5 = (CheckBox) findViewById(R.id.checkbox5);
         checkBox6 = (CheckBox) findViewById(R.id.checkbox6);
         checkBox7 = (CheckBox) findViewById(R.id.checkbox7);
+
+        //alarm id'si alınır
+        alarmid = getIntent().getExtras().getString("alarmid");
 
         //önceki intentten ilaç ismi alınır.
         Intent intent = getIntent();
@@ -410,6 +406,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
 
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+
         }
     }
 

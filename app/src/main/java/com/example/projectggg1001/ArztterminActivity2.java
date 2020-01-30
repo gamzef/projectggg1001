@@ -104,7 +104,6 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
                             Intent intent23 = new Intent(ArztterminActivity2.this,MainActivity.class);
                             intent23.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent23);
-                            startAlert();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -134,14 +133,6 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
         currentDateString = DateFormat.getDateInstance(DateFormat.DEFAULT).format(c.getTime());
         tv_datumtermin.setText(currentDateString);
 
-    }
-
-    public void startAlert(){
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent(this,MyReceiver.class);
-       // PendingIntent pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        //alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,);
     }
 
 
