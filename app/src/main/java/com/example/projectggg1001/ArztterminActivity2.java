@@ -92,6 +92,7 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
                 if(nametermin == ""){
                     Toast.makeText(ArztterminActivity2.this,"Randevunuzun ismini giriniz.",Toast.LENGTH_LONG).show();
                 }else{
+
                     HashMap<String, String> addTermin = new HashMap<>();
                     addTermin.put("terminname", nametermin);
                     addTermin.put("terminzeit",zeit);
@@ -136,8 +137,11 @@ public class ArztterminActivity2 extends AppCompatActivity implements TimePicker
     }
 
     public void startAlert(){
+
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(this,MyReceiver.class);
+       // PendingIntent pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        //alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,);
     }
 
 

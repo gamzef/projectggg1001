@@ -4,10 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -74,6 +80,7 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
     private CheckBox checkBox5;
     private CheckBox checkBox6;
     private CheckBox checkBox7;
+    private TimePicker timePicker;
 
     private FirebaseFirestore firebaseFirestore;
 
@@ -105,7 +112,6 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         checkBox6 = (CheckBox) findViewById(R.id.checkbox6);
         checkBox7 = (CheckBox) findViewById(R.id.checkbox7);
 
-
         //önceki intentten ilaç ismi alınır.
         Intent intent = getIntent();
         final String medname = intent.getStringExtra("medname");
@@ -115,6 +121,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox1.isChecked()){
                     id1=4;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),4);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                         for(int i = 0; hourofDay < 24;i++){
                             if(hourofDay+4<24) {
@@ -134,6 +149,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox2.isChecked()){
                     id1=8;  //kaç saatte bir saatlerin yazılacağı
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),8);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+8<24) {
@@ -154,6 +178,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox3.isChecked()){
                     id1=12;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),12);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+12<24) {
@@ -173,6 +206,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox4.isChecked()){
                     id1=24;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),24);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+24<24) {
@@ -192,6 +234,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox5.isChecked()){
                     id1=48;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),48);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     for(int i = 0; hourofDay < 24;i++){
                         if(hourofDay+48<24) {
@@ -211,6 +262,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox6.isChecked()){
                     id1=7;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),7);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     et_medikamenteinfo6tv.setText(basilacaksaatler);
                 }
@@ -221,6 +281,15 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
             public void onClick(View v) {
                 if(checkBox7.isChecked()){
                     id1=30;
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute()
+                    );
+                    setAlarm(calendar.getTimeInMillis(),30);
                     String basilacaksaatler=(hourofDay+":"+minutes);
                     et_medikamenteinfo7tv.setText(basilacaksaatler);
                 }
@@ -259,9 +328,11 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
                 firebaseFirestore.collection("medikamente").add(addMed1).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(MedspeichernActivity2.this,"Alarm kuruldu.",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MedspeichernActivity2.this,MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -293,13 +364,53 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         return newString.toString();
     }
 
+    //kullanıcının girdiği zamanı alır
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        timePicker = view;
         hourofDay = hourOfDay;
         hourofday1 = hourOfDay;
         minute1 = minute;
         minutes=minute;
         et_medikamenteinfo1.setText(hourOfDay+":"+minute);
+    }
+
+    private void setAlarm(long timeInMillis, int id1) {
+
+        createNotificationChannel();
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, MyReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        if(id1==12){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
+        }else if(id1==24){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
+        }else if(id1==48){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY * 2, pendingIntent);
+        }else if (id1==7){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY * 7, pendingIntent);
+        }else if (id1==30){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY * 30, pendingIntent);
+        }else{
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY / id1, pendingIntent);
+        }
+
+    }
+
+    //notification oluşturmak için
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "İlaç Hatırlatıcı";
+            String description = "İlaç hatırlatıcı için kanal";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("ilachatırlatma", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     @Override
@@ -313,5 +424,4 @@ public class MedspeichernActivity2 extends AppCompatActivity implements TimePick
         et_medikamenteinfo2.setText(currentDateString);
         medikamente_zeit=currentDateString;
     }
-
 }
